@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use  App\Models\Prouduct;
 use  App\Models\User;
+use  App\Models\Category;
 use  App\Http\Controllers\ProuductController;
 use  App\Http\Controllers\UserController;
+use  App\Http\Controllers\CategoryController;
+use  App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +50,15 @@ Route::get('/', function () {
 //     echo 'welcome from post page';
 // });
 
+
+
+//get
+//put
+//delete
+//post
+
+//crud
+
 //to get all products from database
 route::get('/products',[ProuductController::class,'index'])->name('products.index');
 
@@ -78,5 +90,25 @@ route::get('/users/edit{id}',[UserController::class,'edit'])->name('users.edit')
 route::put('/users/update{id}',[UserController::class,'update'])->name('users.update');
 
 //to create new product
-route::get('/userss/create',[UserController::class,'create'])->name('users.create');
+route::get('/users/create',[UserController::class,'create'])->name('users.create');
 route::post('/users/store',[UserController::class,'store'])->name('users.store');
+
+//relations
+//product    category
+
+//get all category
+route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
+
+// to show category with this id
+route::get('/categories/show{id}',[CategoryController::class,'show'])->name('categories.show');
+
+//to update category info
+route::put('/categories/edit{id}',[CategoryController::class,'edit'])->name('categories.edit');
+route::put('/categories/update{id}',[CategoryController::class,'update'])->name('categories.update');
+
+
+//   to see all orders
+route::get('/orders',[OrderController::class,'index'])->name('orders.index');
+
+//to show all orders
+route::get('orders/show{id}',[OrderController::class,'show'])->name('orders.show');

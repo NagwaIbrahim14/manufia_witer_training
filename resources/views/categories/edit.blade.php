@@ -10,30 +10,26 @@
 </head>
 <body>
   <div class="row mg-50 m-auto">
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="{{ route('categories.update',$category->id) }}" method="post">
+        @method('PUT')
         @csrf
-        {{-- <div class="col-3">
-            <label for="id" class="form-label" >id</label>
-        <input type="text" name="id" class='form-control' >
+        <div class="col-3">
+            <label for="category_name" class="form-label" >name</label>
+        <input type="text" name="category_name" class='form-control' value="{{ $category->name }}">
 
+        </div>
+        {{-- <div class="col-3">
+            <label for="price" class="form-label" >price</label>
+        <input type="text" name="price" class='form-control' value="{{ $category->price }}">
+        </div>
+        <div class="col-3">
+            <label for="name" class="form-label" >quantity</label>
+        <input type="text" name="quantity" class='form-control' value="{{ $category->quantity }}">
         </div> --}}
-        <div class="col-3">
-            <label for="user_name" class="form-label" >name</label>
-        <input type="text" name="user_name" class='form-control' >
-        
-        </div>
-        <div class="col-3">
-            <label for="email" class="form-label" >email</label>
-        <input type="text" name="email" class='form-control'  >
-        </div>
-        <div class="col-3">
-            <label for="user_password" class="form-label" >user_password</label>
-        <input type="password" name="user_password" class='form-control'  >
-        </div>
-        <div class="col-3">
+        {{-- <div class="col-3">
             <label for="created_at" class="form-label" >created_at</label>
-        <input type="date" name="created_at" class='form-control'  >
-        </div>
+        <input type="text" name="created_at" class='form-control' value="{{ $product->created_at }}">
+        </div> --}}
        <div class="col-3">
         <input type="submit"  class="form-action">
 
@@ -42,3 +38,4 @@
   </div>
 </body>
 </html>
+
